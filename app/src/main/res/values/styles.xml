@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="my_style_bottom_navigation" parent="Widget.MaterialComponents.BottomNavigationView">
+
+        <item name="itemIconTint">@color/my_mtrl_bottom_nav_colored_item_tint</item>
+        <item name="itemTextColor">@color/my_mtrl_bottom_nav_colored_item_tint</item>
+        <item name="itemRippleColor">@color/my_mtrl_bottom_nav_colored_ripple_color</item>
+        <item name="itemTextAppearanceActive">@style/my_item_textAppearance_bottomNavigation</item>
+    </style>
+
+    <style name="my_item_textAppearance_bottomNavigation">
+        <item name="fontFamily">@font/vazir_bold</item>
+        <item name="android:fontFamily">@font/vazir_bold</item>
+    </style>
+
+    <style name="ShopUserProfileShapeAppearance">
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="ShopSearchEditTextStyle" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@drawable/background_search_edittext</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/m_black</item>
+        <item name="android:paddingStart">48dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:maxLength">30</item>
+        <item name="android:imeOptions">actionSearch</item>
+        <item name="singleLine">true</item>
+        <item name="android:inputType">text</item>
+        <item name="android:gravity">right|center_vertical</item>
+        <item name="android:textColorHint">@color/m_gray</item>
+    </style>
+
+    <style name="ShopProfileTextViewStyle">
+        <item name="android:background">?selectableItemBackground</item>
+        <item name="android:textAppearance">?textAppearanceBody1</item>
+        <item name="android:gravity">center_vertical|right</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:layout_marginBottom">4dp</item>
+        <item name="android:minHeight">46dp</item>
+        <item name="android:drawablePadding">12dp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:clickable">true</item>
+    </style>
+</resources>

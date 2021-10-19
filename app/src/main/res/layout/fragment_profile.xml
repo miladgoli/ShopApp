@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/profileSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:paddingStart="16dp"
+            android:paddingTop="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="16dp">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/userProfileNikyImageViewProfileFragment"
+                android:layout_width="75dp"
+                app:cardBackgroundColor="@color/white"
+                android:layout_height="75dp"
+                app:cardCornerRadius="100dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_nike_logo"
+                    android:padding="10dp"/>
+            </com.google.android.material.card.MaterialCardView>
+            <TextView
+                android:id="@+id/usernameTextViewProfileFragment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/vazir_medium"
+                android:gravity="right"
+                android:lines="1"
+                android:maxLines="1"
+                android:textAppearance="?textAppearanceHeadline6"
+                app:layout_constraintBottom_toTopOf="@+id/emailTextViewProfileFragment"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/userProfileNikyImageViewProfileFragment"
+                app:layout_constraintTop_toTopOf="@+id/userProfileNikyImageViewProfileFragment"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:text="@string/newUser" />
+
+            <TextView
+                android:id="@+id/emailTextViewProfileFragment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:ellipsize="end"
+                android:gravity="right"
+                android:lines="1"
+                android:maxLines="1"
+                android:textAppearance="?textAppearanceBody2"
+                android:textColor="?android:textColorSecondary"
+                app:layout_constraintBottom_toBottomOf="@+id/userProfileNikyImageViewProfileFragment"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/usernameTextViewProfileFragment"
+                app:layout_constraintTop_toBottomOf="@+id/usernameTextViewProfileFragment"
+                tools:text="abolfazlrezaei.of@gmail.com" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/profileSection"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="16dp"
+            android:divider="@drawable/profile_divider"
+            android:orientation="vertical"
+            android:showDividers="end|beginning|middle">
+
+            <TextView
+                android:id="@+id/profileEditTextViewFragmentProfile"
+                style="@style/ShopProfileTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/vazir_medium"
+                android:text="@string/editAcunte"
+                app:drawableStartCompat="@drawable/ic_profile_24dp" />
+
+            <TextView
+                android:id="@+id/favoritesListTextViewFragmentProfile"
+                style="@style/ShopProfileTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/vazir_medium"
+                android:text="@string/favoriteList"
+                app:drawableStartCompat="@drawable/ic_favorites_24dp" />
+
+            <TextView
+                android:id="@+id/orderHistoryTextViewFragmentProfile"
+                style="@style/ShopProfileTextViewStyle"
+                android:layout_width="match_parent"
+                android:fontFamily="@font/vazir_medium"
+                android:layout_height="wrap_content"
+                android:text="@string/orderHistory"
+                app:drawableStartCompat="@drawable/ic_order_history_24dp" />
+
+            <TextView
+                android:id="@+id/signoutTextViewFragmentProfile"
+                style="@style/ShopProfileTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/vazir_medium"
+                android:text="@string/signoutAccont"
+                app:drawableStartCompat="@drawable/ic_singout_24dp" />
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/applicationVersionTextViewProfileFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/vazir_medium"
+            android:textAppearance="?textAppearanceBody1"
+            android:textColor="?android:textColorSecondary"
+            tools:text="@string/versionApp" />
+
+    </RelativeLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

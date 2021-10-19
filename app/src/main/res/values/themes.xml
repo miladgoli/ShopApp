@@ -1,0 +1,23 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.ShopApp" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/m_blue</item>
+        <item name="colorPrimaryVariant">#CCCCCC</item>
+        <item name="colorOnPrimary">@color/m_white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/m_blue</item>
+        <item name="colorSecondaryVariant">@color/m_blue_dark</item>
+        <item name="colorOnSecondary">@color/m_white</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="colorSurface">@color/m_white</item>
+        <item name="colorOnSurface">@color/m_black</item>
+
+
+        <!-- icon colors here. -->
+        <item name="iconColor">@color/m_black</item>
+
+    </style>
+</resources>
