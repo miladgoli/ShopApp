@@ -44,5 +44,6 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HomeViewHolder>() {
     fun setListProducts(list:ArrayList<Product>){
         products.clear()
         products.addAll(list)
+        notifyDataSetChanged()
     }
 }

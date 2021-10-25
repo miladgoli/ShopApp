@@ -15,10 +15,6 @@ class MainActivity : AppCompatActivity() {
         //Setup Navigation View And Bottom Navigation
         navigationSetups()
 
-
-
-
-
     }
 
     fun navigationSetups(){

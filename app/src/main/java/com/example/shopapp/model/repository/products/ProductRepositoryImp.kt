@@ -1,9 +1,10 @@
 package com.example.shopapp.model.repository.products
 
-import androidx.lifecycle.LiveData
+import ProductRepository
 import com.example.shopapp.model.database.products.ProductDao
 import com.example.shopapp.model.entitys.Product
 import io.reactivex.Completable
+import io.reactivex.Single
 
 class ProductRepositoryImp(dao:ProductDao) : ProductRepository {
 
@@ -25,7 +26,7 @@ class ProductRepositoryImp(dao:ProductDao) : ProductRepository {
         return dao.deleteAllProducts()
     }
 
-    override fun getProducts(): LiveData<List<Product>> {
+    override fun getProducts(): Single<List<Product>> {
         return dao.getAllProducts()
     }
 

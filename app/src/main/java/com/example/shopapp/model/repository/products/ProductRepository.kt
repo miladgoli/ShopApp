@@ -1,8 +1,8 @@
-package com.example.shopapp.model.repository.products
 
 import androidx.lifecycle.LiveData
 import com.example.shopapp.model.entitys.Product
 import io.reactivex.Completable
+import io.reactivex.Single
 
 interface ProductRepository {
 
@@ -14,5 +14,5 @@ interface ProductRepository {
 
     fun deleteAllProducts(): Completable
 
-    fun getProducts(): LiveData<List<Product>>
+    fun getProducts(): Single<List<Product>>
 }

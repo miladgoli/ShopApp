@@ -1,14 +1,13 @@
 package com.example.shopapp.model.database.products
 
 import androidx.lifecycle.LiveData
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Update
+import androidx.room.*
 import com.example.shopapp.model.entitys.Product
 import io.reactivex.Completable
+import io.reactivex.Single
 
 
+@Dao
 interface ProductDao {
    @Insert
    fun addProduct(product: Product): Completable
@@ -23,5 +22,5 @@ interface ProductDao {
    fun deleteProduct(product: Product): Completable
 
    @Query("Select * from tbl_product")
-   fun getAllProducts(): LiveData<List<Product>>
+   fun getAllProducts(): Single<List<Product>>
 }

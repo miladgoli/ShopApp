@@ -1,11 +1,12 @@
 package com.example.shopapp.viewmodel.products
 
+import ProductRepository
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.shopapp.model.entitys.Product
-import com.example.shopapp.model.repository.products.ProductRepository
 import io.reactivex.CompletableObserver
+import io.reactivex.SingleObserver
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
@@ -20,6 +21,7 @@ class ProductViewModel(repository: ProductRepository) : ViewModel() {
     //MutableLiveData
     val errorsMu: MutableLiveData<String> = MutableLiveData<String>()
     val addProductMu: MutableLiveData<Boolean> = MutableLiveData<Boolean>()
+    val getProductMu: MutableLiveData<List<Product>> = MutableLiveData<List<Product>>()
     val deleteProductMu: MutableLiveData<Boolean> = MutableLiveData<Boolean>()
     val deleteAllProductMu: MutableLiveData<Boolean> = MutableLiveData<Boolean>()
     val updateProductMu: MutableLiveData<Boolean> = MutableLiveData<Boolean>()
@@ -105,10 +107,30 @@ class ProductViewModel(repository: ProductRepository) : ViewModel() {
             })
     }
 
+    fun getAllProducts() {
+        repository.getProducts()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(object : SingleObserver<List<Product>>{
+                override fun onSubscribe(d: Disposable) {
+                    compositeDisposable.add(d)
+                }
+
+                override fun onSuccess(t: List<Product>) {
+                    getProductMu.postValue(t)
+                }
+
+                override fun onError(e: Throwable) {
+                    errorsMu.postValue(e.toString())
+                }
+
+            })
+    }
+
 
     //return mutable
     fun getProducts(): LiveData<List<Product>>{
-        return repository.getProducts()
+        return getProductMu
 
     }
 
