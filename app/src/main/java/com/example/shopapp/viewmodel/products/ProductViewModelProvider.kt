@@ -1,6 +1,6 @@
 package com.example.shopapp.viewmodel.products
 
-import ProductRepository
+import com.example.shopapp.model.repository.products.ProductRepository
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -12,7 +12,7 @@ import com.example.shopapp.model.utils.utils.DATABASE_NAME_PRODUCTS
 
 class ProductViewModelProvider(private val context: Context) : ViewModelProvider.Factory {
     lateinit var dao: ProductDao
-    lateinit var productRepository:ProductRepository
+    lateinit var productRepository: ProductRepository
     lateinit var database:ProductDatabase
 
 

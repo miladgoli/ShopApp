@@ -1,6 +1,5 @@
 package com.example.shopapp.model.repository.products
 
-import ProductRepository
 import com.example.shopapp.model.database.products.ProductDao
 import com.example.shopapp.model.entitys.Product
 import io.reactivex.Completable

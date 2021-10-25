@@ -1,6 +1,6 @@
 package com.example.shopapp.viewmodel.products
 
-import ProductRepository
+import com.example.shopapp.model.repository.products.ProductRepository
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -14,7 +14,7 @@ import io.reactivex.schedulers.Schedulers
 
 class ProductViewModel(repository: ProductRepository) : ViewModel() {
 
-    val repository:ProductRepository=repository
+    val repository: ProductRepository =repository
 
     val compositeDisposable: CompositeDisposable = CompositeDisposable()
 
