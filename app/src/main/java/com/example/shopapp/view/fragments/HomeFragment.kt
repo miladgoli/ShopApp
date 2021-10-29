@@ -1,29 +1,39 @@
-package com.example.rezomemasoomie.view.fragments
+ package com.example.rezomemasoomie.view.fragments
 
-import android.content.SharedPreferences
+import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.shopapp.R
 import com.example.shopapp.databinding.FragmentHomeBinding
+import com.example.shopapp.model.entitys.Cart
 import com.example.shopapp.model.entitys.Product
 import com.example.shopapp.model.sharedprefrence.CheckDataProducts
 import com.example.shopapp.view.adapters.HomeAdapter
+import com.example.shopapp.view.adapters.callBackHomeAdapter
+import com.example.shopapp.viewmodel.cart.CartViewModel
+import com.example.shopapp.viewmodel.cart.CartViewModelProvider
 import com.example.shopapp.viewmodel.products.ProductViewModel
 import com.example.shopapp.viewmodel.products.ProductViewModelProvider
+import com.google.android.material.snackbar.Snackbar
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), callBackHomeAdapter {
 
-    lateinit var binding: FragmentHomeBinding
-    lateinit var viewModel: ProductViewModel
-    lateinit var adapter: HomeAdapter
-    lateinit var sharedPreferences: CheckDataProducts
+    private lateinit var binding: FragmentHomeBinding
+    private lateinit var viewModel: ProductViewModel
+    private lateinit var cartViewModel: CartViewModel
+    private lateinit var adapter: HomeAdapter
+    private lateinit var sharedPreferences: CheckDataProducts
+    private val TAG = "HomeFragment"
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,14 +41,13 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
-        adapter = HomeAdapter()
-        //view model
+        adapter = HomeAdapter(this)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        
         // < init Methods
         initializeAndCheckViewModel()
 
@@ -46,11 +55,9 @@ class HomeFragment : Fragment() {
 
         setupRecycleView()
         // init Methods >
-
     }
 
     fun initializeAndCheckViewModel() {
-        sharedPreferences = CheckDataProducts(requireContext())
 
         //initialize view model
         viewModel = ViewModelProvider(
@@ -58,29 +65,56 @@ class HomeFragment : Fragment() {
             ProductViewModelProvider(requireContext())
         ).get(ProductViewModel::class.java)
 
-        //check first install or no
-        if (!sharedPreferences.getSuccess()) {
-            Toast.makeText(requireContext(), "Welcome", Toast.LENGTH_SHORT).show()
-            sharedPreferences.setCheckedApp(true)
-            val product = Product(0, 200000, 100000, "dsdsdsd", 0, "کفش مردانه  nike", false)
-            viewModel.addProduct(product)
-            viewModel.addProduct(product)
-            viewModel.addProduct(product)
-            viewModel.addProduct(product)
-        }
+        cartViewModel = ViewModelProvider(
+            this,
+            CartViewModelProvider(requireContext())
+        ).get(CartViewModel::class.java)
+
     }
 
-    fun getProductsFromViewModel() {
+    fun getProductsFromViewModel(){
         viewModel.getAllProducts()
-
         viewModel.getProducts().observe(requireActivity(), Observer {
             adapter.setListProducts(it as ArrayList<Product>)
         })
+
     }
 
     fun setupRecycleView() {
         binding.recViewHome.layoutManager =
             LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
         binding.recViewHome.adapter = adapter
+    }
+
+    override fun onCartClickListener(product: Product) {
+        cartViewModel.addCart(
+            Cart(
+                0,
+                product.previousPrice,
+                product.currentPrice,
+                product.image,
+                product.status,
+                product.title,
+                product.isFavorite
+            )
+        )
+
+        onSNACK(requireView())
+    }
+
+    fun onSNACK(view: View) {
+        //Snackbar(view)
+        val snackbar = Snackbar.make(
+            view, "Added",
+            Snackbar.LENGTH_LONG
+        ).setAction("Action", null)
+        snackbar.setActionTextColor(resources.getColor(R.color.m_white))
+        val snackbarView = snackbar.view
+        snackbarView.setBackgroundColor(resources.getColor(R.color.m_black))
+        val textView =
+            snackbarView.findViewById(com.google.android.material.R.id.snackbar_text) as TextView
+        textView.setTextColor(resources.getColor(R.color.m_white))
+        textView.textSize = 18f
+        snackbar.show()
     }
 }
