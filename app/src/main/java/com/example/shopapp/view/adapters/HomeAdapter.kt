@@ -10,6 +10,7 @@ import com.example.shopapp.R
 import com.example.shopapp.model.entitys.Product
 import com.example.shopapp.viewmodel.cart.CartViewModel
 import com.squareup.picasso.Picasso
+import java.text.DecimalFormat
 
 class HomeAdapter(val callBackHomeAdapter: callBackHomeAdapter) :
     RecyclerView.Adapter<HomeAdapter.HomeViewHolder>() {
@@ -24,16 +25,19 @@ class HomeAdapter(val callBackHomeAdapter: callBackHomeAdapter) :
         val image: ImageView = itemView.findViewById(R.id.imageViewProduct)
 
         fun bindItems(product: Product) {
-            title.text = product.title
-            prviousPrice.text = product.previousPrice.toString()
-            price.text = product.currentPrice.toString()
-            Picasso.with(itemView.context).load(product.image).error(R.drawable.error).placeholder(R.drawable.ic_nike_logo).centerCrop().fit().into(image)
 
+            title.text = product.title
+
+            prviousPrice.text = DecimalFormat("###,###,###").format(product.previousPrice)
+            price.text = DecimalFormat("###,###,###").format(product.currentPrice)
+            Picasso.with(itemView.context).load(product.image).error(R.drawable.error)
+                .placeholder(R.drawable.ic_nike_logo).centerCrop().fit().into(image)
 
             itemView.setOnLongClickListener {
                 callBackHomeAdapter.onCartClickListener(product)
                 return@setOnLongClickListener false
             }
+
         }
     }
 

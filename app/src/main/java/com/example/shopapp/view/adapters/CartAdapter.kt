@@ -11,6 +11,7 @@ import com.example.shopapp.model.entitys.Cart
 import com.example.shopapp.model.entitys.Product
 import com.example.shopapp.viewmodel.products.ProductViewModel
 import com.squareup.picasso.Picasso
+import java.text.DecimalFormat
 
 class CartAdapter : RecyclerView.Adapter<CartAdapter.HomeViewHolder>() {
 
@@ -24,9 +25,11 @@ class CartAdapter : RecyclerView.Adapter<CartAdapter.HomeViewHolder>() {
         val image:ImageView=itemView.findViewById(R.id.imageViewProduct)
 
         fun bindItems(cart: Cart){
+
             title.text=cart.title
-            prviousPrice.text=cart.previousPrice.toString()
-            price.text=cart.currentPrice.toString()
+            prviousPrice.text= DecimalFormat("###,###,###").format(cart.previousPrice)
+            price.text=DecimalFormat("###,###,###").format(cart.currentPrice)
+
             Picasso.with(itemView.context).load(cart.image).centerCrop().fit().error(R.drawable.error).placeholder(R.drawable.ic_nike_logo).into(image)
         }
     }
