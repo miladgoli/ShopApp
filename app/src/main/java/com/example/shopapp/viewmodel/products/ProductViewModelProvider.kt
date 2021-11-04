@@ -11,10 +11,10 @@ import com.example.shopapp.model.repository.products.ProductRepositoryImp
 import com.example.shopapp.model.utils.utils.DATABASE_NAME_PRODUCTS
 
 class ProductViewModelProvider(private val context: Context) : ViewModelProvider.Factory {
+
     lateinit var dao: ProductDao
     lateinit var productRepository: ProductRepository
-    lateinit var database:ProductDatabase
-
+    lateinit var database: ProductDatabase
 
     fun initializeDatabase(){
         database=Room.databaseBuilder(context, ProductDatabase::class.java, DATABASE_NAME_PRODUCTS).build()
@@ -22,10 +22,9 @@ class ProductViewModelProvider(private val context: Context) : ViewModelProvider
         productRepository=ProductRepositoryImp(dao)
     }
 
-
-
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         initializeDatabase()
         return ProductViewModel(productRepository) as T
     }
+
 }

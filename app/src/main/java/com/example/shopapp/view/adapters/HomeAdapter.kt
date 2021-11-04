@@ -8,7 +8,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shopapp.R
 import com.example.shopapp.model.entitys.Product
-import com.example.shopapp.viewmodel.cart.CartViewModel
 import com.squareup.picasso.Picasso
 import java.text.DecimalFormat
 
@@ -34,8 +33,12 @@ class HomeAdapter(val callBackHomeAdapter: callBackHomeAdapter) :
                 .placeholder(R.drawable.ic_nike_logo).centerCrop().fit().into(image)
 
             itemView.setOnLongClickListener {
-                callBackHomeAdapter.onCartClickListener(product)
+                callBackHomeAdapter.onLongCartClickListener(product)
                 return@setOnLongClickListener false
+            }
+
+            itemView.setOnClickListener {
+                callBackHomeAdapter.onCartClickListener(product)
             }
 
         }
@@ -71,6 +74,7 @@ class HomeAdapter(val callBackHomeAdapter: callBackHomeAdapter) :
 }
 
 interface callBackHomeAdapter {
+    fun onLongCartClickListener(product: Product)
     fun onCartClickListener(product: Product)
 }
 

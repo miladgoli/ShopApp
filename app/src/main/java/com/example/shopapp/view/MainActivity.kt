@@ -72,6 +72,14 @@ class MainActivity : AppCompatActivity(), callBackHomeAdapter {
         sharedPreferences = CheckDataProducts(this)
     }
 
+    override fun onLongCartClickListener(product: Product) {
+    }
+
     override fun onCartClickListener(product: Product) {
+
+    }
+
+    override fun onBackPressed() {
+
     }
 }
