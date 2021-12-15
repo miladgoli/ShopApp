@@ -1,4 +1,4 @@
- package com.example.rezomemasoomie.view.fragments
+package com.example.rezomemasoomie.view.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,18 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shopapp.R
 import com.example.shopapp.databinding.FragmentHomeBinding
-import com.example.shopapp.model.entitys.Cart
 import com.example.shopapp.model.entitys.Product
-import com.example.shopapp.model.sharedprefrence.CheckDataProducts
 import com.example.shopapp.view.adapters.HomeAdapter
-import com.example.shopapp.view.adapters.callBackHomeAdapter
 import com.example.shopapp.viewmodel.cart.CartViewModel
 import com.example.shopapp.viewmodel.cart.CartViewModelProvider
 import com.example.shopapp.viewmodel.products.ProductViewModel
@@ -25,13 +22,12 @@ import com.example.shopapp.viewmodel.products.ProductViewModelProvider
 import com.google.android.material.snackbar.Snackbar
 
 
- class HomeFragment : Fragment(), callBackHomeAdapter {
+class HomeFragment() : Fragment(), HomeAdapter.CallBackHomeAdapter {
 
     private lateinit var binding: FragmentHomeBinding
     private lateinit var viewModel: ProductViewModel
     private lateinit var cartViewModel: CartViewModel
     private lateinit var adapter: HomeAdapter
-    private lateinit var sharedPreferences: CheckDataProducts
     private val TAG = "HomeFragment"
 
     override fun onCreateView(
@@ -46,7 +42,7 @@ import com.google.android.material.snackbar.Snackbar
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        
+
         // < init Methods
         initializeAndCheckViewModel()
 
@@ -71,7 +67,7 @@ import com.google.android.material.snackbar.Snackbar
 
     }
 
-    fun getProductsFromViewModel(){
+    fun getProductsFromViewModel() {
         viewModel.getAllProducts()
         viewModel.getProducts().observe(requireActivity(), Observer {
             adapter.setListProducts(it as ArrayList<Product>)
@@ -83,32 +79,6 @@ import com.google.android.material.snackbar.Snackbar
         binding.recViewHome.layoutManager =
             LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
         binding.recViewHome.adapter = adapter
-    }
-
-    override fun onLongCartClickListener(product: Product) {
-        cartViewModel.addCart(
-            Cart(
-                0,
-                product.previousPrice,
-                product.currentPrice,
-                product.image,
-                product.status,
-                product.title,
-                product.isFavorite
-            )
-        )
-
-        onSNACK(requireView())
-    }
-
-    override fun onCartClickListener(product: Product) {
-
-        val fragmentManager: FragmentManager? = fragmentManager
-        fragmentManager?.beginTransaction()
-            ?.replace(
-                R.id.mainFragment, ProductFragment()
-            )
-            ?.commit()
     }
 
     fun onSNACK(view: View) {
@@ -126,4 +96,32 @@ import com.google.android.material.snackbar.Snackbar
         textView.textSize = 18f
         snackbar.show()
     }
+
+
+    override fun onLongCartClickListenerHomeFragment(product: Product) {
+        /*
+     cartViewModel.addCart(
+         Cart(
+             0,
+             product.previousPrice,
+             product.currentPrice,
+             product.image,
+             product.status,
+             product.title,
+             product.isFavorite
+         )
+     )
+
+     onSNACK(requireView())
+
+      */
+    }
+
+    override fun onCartClickListenerHomeFragment(product: Product) {
+       findNavController().navigate(R.id.action_home_to_product)
+    }
+
+
 }
+
+

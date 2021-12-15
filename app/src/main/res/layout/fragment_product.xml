@@ -1,31 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="@color/m_white">
 
-    <RelativeLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:background="@color/m_white"
         android:layout_height="match_parent">
 
-        <com.google.android.material.card.MaterialCardView
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            app:cardElevation="16dp"
-           >
+            android:layout_height="match_parent">
 
-            <ImageView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_nike_logo"
-                android:padding="16dp"
-                android:scaleType="fitCenter"/>
+                android:orientation="vertical">
 
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    app:cardElevation="16dp">
 
-        </com.google.android.material.card.MaterialCardView>
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="16dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_nike_logo" />
 
-    </RelativeLayout>
+                </com.google.android.material.card.MaterialCardView>
 
+                <TextView
+                    style="@style/TextAppearance.MaterialComponents.Headline6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:textAlignment="textStart"
+                    android:textSize="18sp"
+                    tools:text="@string/info_women_sport" />
+            </LinearLayout>
 
-</androidx.core.widget.NestedScrollView>
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        app:srcCompat="@drawable/ic_bag_cart" />
+
+</RelativeLayout>

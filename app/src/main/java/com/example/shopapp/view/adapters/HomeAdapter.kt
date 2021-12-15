@@ -11,7 +11,7 @@ import com.example.shopapp.model.entitys.Product
 import com.squareup.picasso.Picasso
 import java.text.DecimalFormat
 
-class HomeAdapter(val callBackHomeAdapter: callBackHomeAdapter) :
+class HomeAdapter(var listener:CallBackHomeAdapter) :
     RecyclerView.Adapter<HomeAdapter.HomeViewHolder>() {
 
     var products: ArrayList<Product> = ArrayList()
@@ -32,13 +32,8 @@ class HomeAdapter(val callBackHomeAdapter: callBackHomeAdapter) :
             Picasso.with(itemView.context).load(product.image).error(R.drawable.error)
                 .placeholder(R.drawable.ic_nike_logo).centerCrop().fit().into(image)
 
-            itemView.setOnLongClickListener {
-                callBackHomeAdapter.onLongCartClickListener(product)
-                return@setOnLongClickListener false
-            }
-
             itemView.setOnClickListener {
-                callBackHomeAdapter.onCartClickListener(product)
+                listener.onCartClickListenerHomeFragment(product)
             }
 
         }
@@ -71,10 +66,15 @@ class HomeAdapter(val callBackHomeAdapter: callBackHomeAdapter) :
         notifyItemInserted(0)
     }
 
+
+
+    interface CallBackHomeAdapter {
+        fun onLongCartClickListenerHomeFragment(product: Product)
+        fun onCartClickListenerHomeFragment(product: Product)
+    }
 }
 
-interface callBackHomeAdapter {
-    fun onLongCartClickListener(product: Product)
-    fun onCartClickListener(product: Product)
-}
+
+
+
 
