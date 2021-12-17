@@ -55,6 +55,8 @@ class MainActivity : AppCompatActivity(), HomeAdapter.CallBackHomeAdapter {
             Toast.makeText(this, "Welcome", Toast.LENGTH_SHORT).show()
             sharedPreferences.setCheckedApp(true)
 
+
+
             for (i in Methods.getNewListProducts().indices) {
                 viewModel.addProduct(list.get(i))
             }

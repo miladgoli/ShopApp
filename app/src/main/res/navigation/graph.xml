@@ -21,16 +21,32 @@
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@android:anim/fade_in"
-            app:popExitAnim="@android:anim/fade_out" />
+            app:popExitAnim="@android:anim/fade_out"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_home_to_profile"
+            app:destination="@id/profile" />
+        <action
+            android:id="@+id/action_home_to_cart"
+            app:destination="@id/cart" />
     </fragment>
 
     <fragment android:id="@+id/cart"
         tools:layout="@layout/fragment_cart"
         android:name="com.example.rezomemasoomie.view.fragments.CartFragment"
-        android:label="Cart"/>
+        android:label="Cart">
+        <action
+            android:id="@+id/action_cart_to_product_cart"
+            app:destination="@id/product_cart" />
+    </fragment>
 
     <fragment android:id="@+id/product"
         tools:layout="@layout/fragment_product"
         android:name="com.example.rezomemasoomie.view.fragments.ProductFragment"
         android:label="Product"/>
+    <fragment
+        android:id="@+id/product_cart"
+        tools:layout="@layout/fragment_product_cart"
+        android:name="com.example.rezomemasoomie.view.fragments.ProductCartFragment"
+        android:label="ProductCartFragment" />
 </navigation>

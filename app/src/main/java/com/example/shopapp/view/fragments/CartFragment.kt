@@ -1,4 +1,3 @@
-
 package com.example.rezomemasoomie.view.fragments
 
 import android.os.Bundle
@@ -9,17 +8,20 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.shopapp.R
 import com.example.shopapp.databinding.FragmentCartBinding
 import com.example.shopapp.model.entitys.Cart
+import com.example.shopapp.model.entitys.Product
 import com.example.shopapp.model.sharedprefrence.CheckDataProducts
 import com.example.shopapp.view.adapters.CartAdapter
 import com.example.shopapp.view.adapters.HomeAdapter
 import com.example.shopapp.viewmodel.cart.CartViewModel
 import com.example.shopapp.viewmodel.cart.CartViewModelProvider
 
-class CartFragment: Fragment() {
+class CartFragment : Fragment(), CartAdapter.CartAdapterListener {
 
     lateinit var binding: FragmentCartBinding
     lateinit var viewModel: CartViewModel
@@ -32,7 +34,7 @@ class CartFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentCartBinding.inflate(inflater, container, false)
-        adapter = CartAdapter()
+        adapter = CartAdapter(this)
         return binding.root
     }
 
@@ -70,10 +72,22 @@ class CartFragment: Fragment() {
         binding.cartRecyclerViewCart.adapter = adapter
     }
 
-    fun buttonListener(){
-        binding.btnClearCart.setOnClickListener{
+    fun buttonListener() {
+        binding.btnClearCart.setOnClickListener {
             viewModel.deleteAllProduct()
             adapter.deleteAllProductCart()
         }
+    }
+
+    override fun onClickItemListener(cart: Cart) {
+        val bundle = Bundle()
+        val navHostFragment = findNavController()
+        bundle.putParcelable("cart", cart)
+        navHostFragment.navigate(R.id.action_cart_to_product_cart, bundle)
+    }
+
+    override fun onLongClickItemListener(cart: Cart) {
+        viewModel.deleteCart(cart)
+        adapter.deleteProductCart(cart)
     }
 }

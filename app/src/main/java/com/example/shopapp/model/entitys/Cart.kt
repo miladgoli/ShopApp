@@ -20,6 +20,8 @@ data class Cart (
     val image: String,
     val status: Int,
     val title: String,
+    val info:String,
     //for contain favorite section
-    var isFavorite: Boolean = false
+    var isFavorite: Boolean = false,
+    val count:Int
     ) : Parcelable

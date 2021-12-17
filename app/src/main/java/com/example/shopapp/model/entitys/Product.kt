@@ -19,6 +19,7 @@ data class Product (
     val image: String,
     val status: Int,
     val title: String,
+    val info:String,
     //for contain favorite section
     var isFavorite: Boolean = false
     ) : Parcelable

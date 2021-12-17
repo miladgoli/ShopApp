@@ -17,7 +17,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="68dp"
+                android:layout_marginBottom="32dp"
                 android:orientation="vertical">
 
                 <RelativeLayout
@@ -43,7 +43,6 @@
 
                     </com.google.android.material.card.MaterialCardView>
                 </RelativeLayout>
-
 
                 <TextView
                     android:id="@+id/titleProductProductFragment"
@@ -113,10 +112,10 @@
                             app:layout_constraintVertical_chainStyle="packed">
 
                             <TextView
-                                android:id="@+id/previousCurrentFragmentProduct"
+                                android:id="@+id/previousCurrentFragmentProductCart"
                                 style="@style/TitleProductTextViewStyle"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_height="match_parent"
                                 android:layout_gravity="center_horizontal"
                                 android:text="160000"
                                 android:textColor="#4E0000"
@@ -162,7 +161,7 @@
                             app:layout_constraintVertical_chainStyle="packed">
 
                             <TextView
-                                android:id="@+id/nowCurrentFragmentProduct"
+                                android:id="@+id/nowCurrentFragmentProductCart"
                                 style="@style/TitleProductTextViewStyle"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -224,17 +223,5 @@
         </RelativeLayout>
 
     </androidx.core.widget.NestedScrollView>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btn_addToFavoriteProductFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        app:srcCompat="@drawable/ic_bag_cart" />
 
 </RelativeLayout>

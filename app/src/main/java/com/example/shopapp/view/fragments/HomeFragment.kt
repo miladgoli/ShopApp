@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -81,35 +82,13 @@ class HomeFragment() : Fragment(), HomeAdapter.CallBackHomeAdapter {
         binding.recViewHome.adapter = adapter
     }
 
-    fun onSNACK(view: View) {
-        //Snackbar(view)
-        val snackbar = Snackbar.make(
-            view, "Added",
-            Snackbar.LENGTH_LONG
-        ).setAction("Action", null)
-        snackbar.setActionTextColor(resources.getColor(R.color.m_white))
-        val snackbarView = snackbar.view
-        snackbarView.setBackgroundColor(resources.getColor(R.color.m_black))
-        val textView =
-            snackbarView.findViewById(com.google.android.material.R.id.snackbar_text) as TextView
-        textView.setTextColor(resources.getColor(R.color.m_white))
-        textView.textSize = 18f
-        snackbar.show()
-    }
+
 
 
     override fun onLongCartClickListenerHomeFragment(product: Product) {
         /*
      cartViewModel.addCart(
-         Cart(
-             0,
-             product.previousPrice,
-             product.currentPrice,
-             product.image,
-             product.status,
-             product.title,
-             product.isFavorite
-         )
+
      )
 
      onSNACK(requireView())
@@ -118,7 +97,13 @@ class HomeFragment() : Fragment(), HomeAdapter.CallBackHomeAdapter {
     }
 
     override fun onCartClickListenerHomeFragment(product: Product) {
-       findNavController().navigate(R.id.action_home_to_product)
+        val bundle = Bundle()
+        val navHostFragment = findNavController()
+        val graph=navHostFragment.navInflater.inflate(R.navigation.graph)
+        bundle.putParcelable("product", product)
+        navHostFragment.graph=graph
+        navHostFragment.setGraph(R.navigation.graph, bundle)
+        navHostFragment.navigate(R.id.action_home_to_product, bundle)
     }
 
 

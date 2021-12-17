@@ -13,16 +13,17 @@ import com.example.shopapp.viewmodel.products.ProductViewModel
 import com.squareup.picasso.Picasso
 import java.text.DecimalFormat
 
-class CartAdapter : RecyclerView.Adapter<CartAdapter.HomeViewHolder>() {
+class CartAdapter(var cartListener:CartAdapterListener) : RecyclerView.Adapter<CartAdapter.HomeViewHolder>() {
 
     var shops:ArrayList<Cart> = ArrayList()
     lateinit var viewModel:ProductViewModel
 
-    class HomeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class HomeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val title:TextView=itemView.findViewById(R.id.textViewTitle)
         val prviousPrice:TextView=itemView.findViewById(R.id.textViewPreviousPrice)
         val price:TextView=itemView.findViewById(R.id.textViewPrice)
         val image:ImageView=itemView.findViewById(R.id.imageViewProduct)
+
 
         fun bindItems(cart: Cart){
 
@@ -31,6 +32,15 @@ class CartAdapter : RecyclerView.Adapter<CartAdapter.HomeViewHolder>() {
             price.text=DecimalFormat("###,###,###").format(cart.currentPrice)
 
             Picasso.with(itemView.context).load(cart.image).centerCrop().fit().error(R.drawable.error).placeholder(R.drawable.ic_nike_logo).into(image)
+
+            itemView.setOnClickListener {
+                cartListener.onClickItemListener(cart)
+            }
+            itemView.setOnLongClickListener {
+                cartListener.onLongClickItemListener(cart)
+
+                return@setOnLongClickListener true
+            }
         }
     }
 
@@ -49,7 +59,7 @@ class CartAdapter : RecyclerView.Adapter<CartAdapter.HomeViewHolder>() {
     //Methods
 
     fun addProductCart(product: Product){
-        val cart:Cart=Cart(product.id,product.previousPrice,product.currentPrice,product.image,product.status,product.title,product.isFavorite)
+        val cart:Cart=Cart(product.id,product.previousPrice,product.currentPrice,product.image,product.status,product.title,product.info,product.isFavorite,1)
         shops.add(cart)
         notifyItemInserted(0)
     }
@@ -69,5 +79,10 @@ class CartAdapter : RecyclerView.Adapter<CartAdapter.HomeViewHolder>() {
         shops.clear()
         shops.addAll(list)
         notifyDataSetChanged()
+    }
+
+    interface CartAdapterListener{
+        fun onClickItemListener(cart: Cart)
+        fun onLongClickItemListener(cart: Cart)
     }
 }

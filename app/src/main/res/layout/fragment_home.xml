@@ -36,17 +36,12 @@
                     <EditText
                         style="@style/ShopSearchEditTextStyle"
                         android:layout_width="match_parent"
-                        android:elevation="1sp"
                         android:layout_height="46dp"
                         android:fontFamily="@font/vazir_bold"
+                        android:drawableStart="@drawable/ic_search_24dp"
+                        android:drawablePadding="8dp"
                         android:hint="@string/search" />
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="start|center_vertical"
-                        android:layout_marginStart="@dimen/normalMargin"
-                        app:srcCompat="@drawable/ic_search_24dp" />
 
 
                 </FrameLayout>
