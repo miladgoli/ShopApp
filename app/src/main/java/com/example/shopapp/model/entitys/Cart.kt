@@ -3,8 +3,7 @@ package com.example.shopapp.model.entitys
 import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.shopapp.model.utils.utils.TABLE_NAME_CART
-import com.example.shopapp.model.utils.utils.TABLE_NAME_PRODUCTS
+import com.example.shopapp.model.utils.Utils.TABLE_NAME_CART
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
@@ -23,5 +22,5 @@ data class Cart (
     val info:String,
     //for contain favorite section
     var isFavorite: Boolean = false,
-    val count:Int
+    var count:Int
     ) : Parcelable

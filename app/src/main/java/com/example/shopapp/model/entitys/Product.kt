@@ -3,7 +3,7 @@ package com.example.shopapp.model.entitys
 import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.shopapp.model.utils.utils.TABLE_NAME_PRODUCTS
+import com.example.shopapp.model.utils.Utils.TABLE_NAME_PRODUCTS
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 

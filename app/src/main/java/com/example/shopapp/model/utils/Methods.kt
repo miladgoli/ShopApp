@@ -3,7 +3,6 @@ package com.example.shopapp.model.utils
 import android.R.attr
 import android.R.attr.*
 import android.view.View
-import android.widget.TextView
 import androidx.fragment.app.FragmentManager
 import com.example.rezomemasoomie.view.fragments.HomeFragment
 import com.example.rezomemasoomie.view.fragments.ProductFragment
@@ -16,15 +15,15 @@ import androidx.core.content.res.ResourcesCompat
 
 import android.graphics.Typeface
 import android.view.Gravity
-import android.widget.FrameLayout
-import android.widget.TableRow
 import android.app.ActionBar
 
-import android.widget.LinearLayout
 import android.os.Build
+import android.os.Bundle
+import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.core.view.marginBottom
 import androidx.core.view.updateLayoutParams
+import androidx.navigation.fragment.findNavController
 
 
 object Methods {
@@ -117,7 +116,7 @@ object Methods {
             0,
             250000,
             115000,
-            "https://kafashkhane.ir/wp-content/uploads/2019/04/84332ec6bf3aa1cdcf35861ecdf51907.jpg",
+            "https://sisishoe.com/wp-content/uploads/2018/06/%DA%A9%D9%81%D8%B4-%D9%85%D8%B1%D8%AF%D8%A7%D9%86%D9%87-%D9%85%D8%AC%D9%84%D8%B3%DB%8C-%DA%A9%D9%81%D8%B4-%D8%AF%D8%B3%D8%AA%D8%AF%D9%88%D8%B2-%D8%B3%DB%8C-%D8%B3%DB%8C-sisi-shoes.jpg",
             1,
             "کفش مردانه مجلسی",
             //
@@ -195,11 +194,11 @@ object Methods {
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
-    fun onSNACK(view: View, text: String) {
+    fun onSnackAddedCart(view: View, text: String, listener: View.OnClickListener) {
 
         val snackbar = Snackbar.make(
             view, text,
-            Snackbar.LENGTH_LONG
+            Snackbar.LENGTH_SHORT
         ).setAction("Action", null)
 
         val snackbarView = snackbar.view
@@ -207,7 +206,7 @@ object Methods {
         val textView =
             snackbarView.findViewById(com.google.android.material.R.id.snackbar_text) as TextView
 
-        textView.textSize = 18f
+        textView.textSize = 16f
 
         snackbarView.setBackgroundColor(view.resources.getColor(R.color.m_blue))
 
@@ -215,6 +214,9 @@ object Methods {
 
         val typeface = ResourcesCompat.getFont(view.context, R.font.vazir_medium)
         textView.setTypeface(typeface)
+
+        snackbar.setAction("نمایش سبد خرید", listener)
+        snackbar.setActionTextColor(view.resources.getColor(R.color.m_black))
 
         snackbar.show()
     }

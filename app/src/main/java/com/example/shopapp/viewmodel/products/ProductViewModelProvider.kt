@@ -8,7 +8,7 @@ import androidx.room.Room
 import com.example.shopapp.model.database.products.ProductDao
 import com.example.shopapp.model.database.products.ProductDatabase
 import com.example.shopapp.model.repository.products.ProductRepositoryImp
-import com.example.shopapp.model.utils.utils.DATABASE_NAME_PRODUCTS
+import com.example.shopapp.model.utils.Utils.DATABASE_NAME_PRODUCTS
 
 class ProductViewModelProvider(private val context: Context) : ViewModelProvider.Factory {
 

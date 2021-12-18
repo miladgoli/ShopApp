@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.example.shopapp.R
 import com.example.shopapp.databinding.FragmentProfileBinding
 
 class ProfileFragment: Fragment() {
@@ -18,6 +20,15 @@ class ProfileFragment: Fragment() {
     ): View? {
         binding = FragmentProfileBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.favoritesListTextViewFragmentProfile.setOnClickListener {
+            val navHostFragment = findNavController()
+            navHostFragment.navigate(R.id.action_profile_to_favoriteFragment)
+        }
     }
 
 
