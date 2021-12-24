@@ -11,9 +11,15 @@
     <string name="versionApp">نسخه 1.0.0</string>
     <string name="profile">پروفایل</string>
     <string name="viewAll">نمایش همه</string>
-    
+    <string name="welcome">خوش آمدید</string>
+    <string name="sign_in_fa">ورود</string>
+    <string name="sign_up_fa">ثبت نام</string>
+    <string name="sign_in">Sign in</string>
+    <string name="sign_up">Sign up</string>
+    <string name="forget_password">Forget Your Password ?</string>
+
     <string name="info_women_sport">کفش زنانه طبی نیز یکی از مدل هایی است که طرفداران خاص خود را دارد. برای کارمندانی که نیاز به ایستادن طولانی مدت دارند یا پرستاران و کادر درمان این مدل کفش‌ها بسیار کاربردی است؛ بهتر است این مدل کفش زنانه از جنس چرم یا الیاف مصنوعی قابل تنفس و سبک تهیه شود.
 در دسته بندی کفش اسپرت زنانه باید به انواع مدل محبوب کفش کالج و لوفر نیز اشاره کرد. این مدل‌ها که گاهی شبیه به کفش مردانه هم هستند، در بین طرفداران کفش‌های تخت از محبوبیتزیادی برخوردارند.</string>
-    
+
 
 </resources>

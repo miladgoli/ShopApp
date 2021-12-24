@@ -29,5 +29,9 @@ class ProductRepositoryImp(dao:ProductDao) : ProductRepository {
         return dao.getAllProducts()
     }
 
+    override fun searchProduct(search: String): Single<List<Product>> {
+        return dao.searchProduct(search)
+    }
+
 
 }

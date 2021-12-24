@@ -33,15 +33,34 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp">
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                    </LinearLayout>
+
                     <EditText
+                        android:id="@+id/edittextSearchHomeFragment"
                         style="@style/ShopSearchEditTextStyle"
                         android:layout_width="match_parent"
                         android:layout_height="46dp"
                         android:fontFamily="@font/vazir_bold"
                         android:drawableStart="@drawable/ic_search_24dp"
+                        android:drawableEnd="@drawable/ic_fake"
                         android:drawablePadding="8dp"
                         android:hint="@string/search" />
 
+                    <ImageView
+                        android:id="@+id/btnClearEditTextHomeFragment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_close_24"
+                        android:layout_gravity="end|center"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:layout_marginEnd="20dp"/>
 
 
                 </FrameLayout>

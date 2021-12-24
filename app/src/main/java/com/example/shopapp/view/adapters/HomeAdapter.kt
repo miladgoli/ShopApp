@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shopapp.R
 import com.example.shopapp.model.entitys.Product
@@ -61,12 +62,22 @@ class HomeAdapter(var listener:CallBackHomeAdapter) :
         notifyDataSetChanged()
     }
 
+    fun getListProducts():ArrayList<Product> {
+        return products
+    }
+
     fun addProduct(product: Product) {
         products.add(product)
         notifyItemInserted(0)
     }
 
+    fun filterSearchAdapter(list: List<Product>){
 
+        products= ArrayList()
+        products= list as ArrayList<Product>
+        notifyDataSetChanged()
+
+    }
 
     interface CallBackHomeAdapter {
         fun onLongCartClickListenerHomeFragment(product: Product)

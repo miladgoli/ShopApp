@@ -7,8 +7,8 @@ import com.example.shopapp.model.entitys.Product
 import io.reactivex.Completable
 import io.reactivex.Single
 
-class CartRepositoryImp(cart:CartDao) : CartRepository {
-    var dao: CartDao = cart
+class CartRepositoryImp(val dao:CartDao) : CartRepository {
+
     override fun deleteCart(cart: Cart): Completable {
         return dao.deleteCart(cart)
     }

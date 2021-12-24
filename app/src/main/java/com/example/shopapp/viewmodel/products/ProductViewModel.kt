@@ -22,6 +22,7 @@ class ProductViewModel(repository: ProductRepository) : ViewModel() {
     val errorsMu: MutableLiveData<String> = MutableLiveData<String>()
     val addProductMu: MutableLiveData<Boolean> = MutableLiveData<Boolean>()
     val getProductMu: MutableLiveData<List<Product>> = MutableLiveData<List<Product>>()
+    val getSearchProductMu: MutableLiveData<List<Product>> = MutableLiveData<List<Product>>()
     val deleteProductMu: MutableLiveData<Boolean> = MutableLiveData<Boolean>()
     val deleteAllProductMu: MutableLiveData<Boolean> = MutableLiveData<Boolean>()
     val updateProductMu: MutableLiveData<Boolean> = MutableLiveData<Boolean>()
@@ -38,6 +39,26 @@ class ProductViewModel(repository: ProductRepository) : ViewModel() {
 
                 override fun onComplete() {
                     addProductMu.postValue(true)
+                }
+
+                override fun onError(e: Throwable) {
+                    errorsMu.postValue(e.toString())
+                }
+
+            })
+    }
+
+    fun searchProduct(search:String){
+        repository.searchProduct(search)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(object : SingleObserver<List<Product>>{
+                override fun onSubscribe(d: Disposable) {
+                   compositeDisposable.add(d)
+                }
+
+                override fun onSuccess(t: List<Product>) {
+                    getSearchProductMu.postValue(t)
                 }
 
                 override fun onError(e: Throwable) {
@@ -131,6 +152,11 @@ class ProductViewModel(repository: ProductRepository) : ViewModel() {
     //return mutable
     fun getProducts(): LiveData<List<Product>>{
         return getProductMu
+
+    }
+
+    fun getSearchedProducts(): LiveData<List<Product>>{
+        return getSearchProductMu
 
     }
 

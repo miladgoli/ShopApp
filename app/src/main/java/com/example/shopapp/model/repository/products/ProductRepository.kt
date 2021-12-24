@@ -14,4 +14,6 @@ interface ProductRepository {
     fun deleteAllProducts(): Completable
 
     fun getProducts(): Single<List<Product>>
+
+    fun searchProduct(search:String): Single<List<Product>>
 }

@@ -1,5 +1,6 @@
 package com.example.shopapp.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -19,6 +20,7 @@ import com.example.shopapp.model.sharedprefrence.CheckDataProducts
 import com.example.shopapp.model.utils.Methods
 import com.example.shopapp.model.utils.WichFragment
 import com.example.shopapp.view.adapters.HomeAdapter
+import com.example.shopapp.view.signin.SigninActivity
 import com.example.shopapp.viewmodel.products.ProductViewModel
 import com.example.shopapp.viewmodel.products.ProductViewModelProvider
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -52,14 +54,17 @@ class MainActivity : AppCompatActivity(), HomeAdapter.CallBackHomeAdapter {
 
         //check first open app
         if (!sharedPreferences.getSuccess()) {
-            Toast.makeText(this, "Welcome", Toast.LENGTH_SHORT).show()
-            sharedPreferences.setCheckedApp(true)
 
-
-
+            val newlist:ArrayList<Product> = ArrayList()
             for (i in Methods.getNewListProducts().indices) {
                 viewModel.addProduct(list.get(i))
+                newlist.add(list.get(i))
             }
+            adapter.setListProducts(newlist)
+
+            val intent=Intent(this,SigninActivity::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 

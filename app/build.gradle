@@ -151,7 +151,10 @@ dependencies {
 
     //picasso
     implementation 'com.squareup.picasso:picasso:2.5.2'
-
     implementation("androidx.fragment:fragment-ktx:1.4.0")
+
+    //JavaMail
+    implementation 'com.sun.mail:android-mail:1.5.5'
+    implementation 'com.sun.mail:android-activation:1.5.5'
 
 }

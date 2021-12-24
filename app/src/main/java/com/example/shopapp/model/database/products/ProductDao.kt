@@ -23,4 +23,7 @@ interface ProductDao {
 
    @Query("Select * from tbl_product")
    fun getAllProducts(): Single<List<Product>>
+
+   @Query("select * from tbl_product where title like '%' || :search || '%'")
+   fun searchProduct(search:String): Single<List<Product>>
 }

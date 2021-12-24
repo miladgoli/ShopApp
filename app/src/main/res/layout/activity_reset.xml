@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/m_white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+
+    <TextView
+        android:id="@+id/textViewResetPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/vazir_bold"
+        android:text="Reset Password"
+        android:textAlignment="center"
+        android:textColor="@color/m_blue_dark"
+        android:textSize="30sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewResetPassword"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="32dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/editTextEmailForgetPassword"
+            style="@style/TextAppearance.MyTheme.Headline3"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_gravity="center"
+            android:layout_margin="16dp"
+            android:background="@drawable/back_edittext"
+            android:drawableStart="@drawable/ic_email"
+            android:drawablePadding="12dp"
+            android:drawableTint="@color/m_blue_dark"
+            android:gravity="center_vertical"
+            android:hint="Email"
+            android:maxLength="28"
+            android:maxLines="1"
+            android:textColor="@color/m_blue_dark"
+            android:textColorHint="#48595959" />
+
+        <EditText
+            android:id="@+id/editTextVerifyCodeForgetPassword"
+            style="@style/TextAppearance.MyTheme.Headline3"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_gravity="center"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            android:background="@drawable/back_edittext"
+            android:drawablePadding="12dp"
+            android:drawableTint="@color/m_blue_dark"
+            android:gravity="center_vertical"
+            android:hint="Inter verify code"
+            android:maxLength="22"
+            android:maxLines="1"
+            android:textColor="@color/m_blue_dark"
+            android:textColorHint="#48595959" />
+
+
+    </LinearLayout>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonGetCodeForgetPassword"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="match_parent"
+        android:layout_height="68dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="96dp"
+        android:layout_marginRight="96dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/yekan_bold"
+        android:gravity="center"
+        android:text="دریافت کد"
+        android:textColor="@color/m_blue_dark"
+        android:textSize="18sp"
+        app:cornerRadius="25dp"
+        app:rippleColor="#338A8A8A"
+        app:strokeColor="@color/m_blue_dark"
+        app:strokeWidth="2sp" />
+
+</RelativeLayout>

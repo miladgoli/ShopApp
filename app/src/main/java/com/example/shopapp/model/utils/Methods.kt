@@ -19,6 +19,7 @@ import android.app.ActionBar
 
 import android.os.Build
 import android.os.Bundle
+import android.text.InputType
 import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.core.view.marginBottom
@@ -216,10 +217,33 @@ object Methods {
         textView.setTypeface(typeface)
 
         snackbar.setAction("نمایش سبد خرید", listener)
-        snackbar.setActionTextColor(view.resources.getColor(R.color.m_black))
+        snackbar.setActionTextColor(view.resources.getColor(R.color.m_very_dark_blue))
 
         snackbar.show()
     }
+
+    val INPUT_TYPE_VISIBLE_PASSWORD =
+        InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+
+    val INPUT_TYPE_HIDDEN_PASSWORD =
+        InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+
+     fun isPasswordVisible(editText: EditText): Boolean {
+        return editText.inputType == INPUT_TYPE_VISIBLE_PASSWORD
+    }
+
+     fun enableInputVisiblePassword(editText: EditText) {
+        val cache = editText.typeface
+        editText.inputType = INPUT_TYPE_VISIBLE_PASSWORD
+        editText.typeface = cache
+    }
+
+     fun enableInputHiddenPassword(editText: EditText) {
+        val cache = editText.typeface
+        editText.inputType = INPUT_TYPE_HIDDEN_PASSWORD
+        editText.typeface = cache
+    }
+
 
 
 }
