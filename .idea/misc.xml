@@ -13,20 +13,24 @@
         <entry key="..\:/Users/Milad/AndroidStudioProjects/ShopApp/app/src/main/res/layout-v23/item_rec_cart.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Milad/AndroidStudioProjects/ShopApp/app/src/main/res/layout/activity_main.xml" value="0.1578125" />
         <entry key="..\:/Users/Milad/AndroidStudioProjects/ShopApp/app/src/main/res/layout/activity_reset.xml" value="0.136" />
-        <entry key="..\:/Users/Milad/AndroidStudioProjects/ShopApp/app/src/main/res/layout/activity_signin.xml" value="0.152" />
+        <entry key="..\:/Users/Milad/AndroidStudioProjects/ShopApp/app/src/main/res/layout/activity_signin.xml" value="0.10400000000000001" />
         <entry key="..\:/Users/Milad/AndroidStudioProjects/ShopApp/app/src/main/res/layout/activity_signup.xml" value="0.16" />
         <entry key="..\:/Users/Milad/AndroidStudioProjects/ShopApp/app/src/main/res/layout/dialog_fragment_delete_all_favorite.xml" value="0.152" />
         <entry key="..\:/Users/Milad/AndroidStudioProjects/ShopApp/app/src/main/res/layout/dialog_fragment_delete_all_product.xml" value="0.190625" />
         <entry key="..\:/Users/Milad/AndroidStudioProjects/ShopApp/app/src/main/res/layout/dialog_fragment_delete_product.xml" value="0.152" />
+        <entry key="..\:/Users/Milad/AndroidStudioProjects/ShopApp/app/src/main/res/layout/dialog_fragment_signout.xml" value="0.176" />
+        <entry key="..\:/Users/Milad/AndroidStudioProjects/ShopApp/app/src/main/res/layout/dialog_fragment_submit_edit.xml" value="0.144" />
         <entry key="..\:/Users/Milad/AndroidStudioProjects/ShopApp/app/src/main/res/layout/fragment.xml" value="0.136" />
         <entry key="..\:/Users/Milad/AndroidStudioProjects/ShopApp/app/src/main/res/layout/fragment_cart.xml" value="0.190625" />
+        <entry key="..\:/Users/Milad/AndroidStudioProjects/ShopApp/app/src/main/res/layout/fragment_edit_profile.xml" value="0.136" />
         <entry key="..\:/Users/Milad/AndroidStudioProjects/ShopApp/app/src/main/res/layout/fragment_favorite.xml" value="0.190625" />
         <entry key="..\:/Users/Milad/AndroidStudioProjects/ShopApp/app/src/main/res/layout/fragment_home.xml" value="0.176" />
-        <entry key="..\:/Users/Milad/AndroidStudioProjects/ShopApp/app/src/main/res/layout/fragment_product.xml" value="0.152" />
+        <entry key="..\:/Users/Milad/AndroidStudioProjects/ShopApp/app/src/main/res/layout/fragment_product.xml" value="0.10400000000000001" />
         <entry key="..\:/Users/Milad/AndroidStudioProjects/ShopApp/app/src/main/res/layout/fragment_product_cart.xml" value="0.1" />
-        <entry key="..\:/Users/Milad/AndroidStudioProjects/ShopApp/app/src/main/res/layout/fragment_profile.xml" value="0.190625" />
+        <entry key="..\:/Users/Milad/AndroidStudioProjects/ShopApp/app/src/main/res/layout/fragment_profile.xml" value="0.144" />
         <entry key="..\:/Users/Milad/AndroidStudioProjects/ShopApp/app/src/main/res/layout/item_rec_cart.xml" value="0.190625" />
         <entry key="..\:/Users/Milad/AndroidStudioProjects/ShopApp/app/src/main/res/layout/item_rec_main.xml" value="0.190625" />
+        <entry key="..\:/Users/Milad/AndroidStudioProjects/ShopApp/app/src/main/res/layout/state_loading.xml" value="0.128" />
         <entry key="..\:/Users/Milad/AndroidStudioProjects/ShopApp/app/src/main/res/menu/main_menu.xml" value="0.1578125" />
       </map>
     </option>

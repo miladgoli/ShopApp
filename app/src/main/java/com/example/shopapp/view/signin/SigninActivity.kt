@@ -43,9 +43,11 @@ class SigninActivity : AppCompatActivity() {
         }
 
         binding.buttonForgetPasswordSignIn.setOnClickListener {
-            val intent= Intent(this, ResetActivity::class.java)
-            startActivity(intent)
-            finish()
+
+            Toast.makeText(this,"Coming soon !",Toast.LENGTH_SHORT).show()
+//            val intent= Intent(this, ResetActivity::class.java)
+//            startActivity(intent)
+//            finish()
         }
 
         binding.buttonSignInSignIn.setOnClickListener {

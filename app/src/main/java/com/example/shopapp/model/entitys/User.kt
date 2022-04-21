@@ -16,12 +16,12 @@ data class User (
     val id: Int,
 
     @SerializedName("user_name")
-    val userName: String,
+    var userName: String,
 
-    val email: String,
+    var email: String,
 
     @SerializedName("phone_number")
-    val phoneNumber: String,
+    var phoneNumber: String,
 
     var password: String,
 

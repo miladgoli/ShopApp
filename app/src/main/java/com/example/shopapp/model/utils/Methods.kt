@@ -16,12 +16,15 @@ import androidx.core.content.res.ResourcesCompat
 import android.graphics.Typeface
 import android.view.Gravity
 import android.app.ActionBar
+import android.content.Context
 
 import android.os.Build
 import android.os.Bundle
 import android.text.InputType
+import android.view.LayoutInflater
 import android.widget.*
 import androidx.annotation.RequiresApi
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.view.marginBottom
 import androidx.core.view.updateLayoutParams
 import androidx.navigation.fragment.findNavController
@@ -30,6 +33,7 @@ import androidx.navigation.fragment.findNavController
 object Methods {
 
     var fragment: Int = 1
+
 
     fun getNewListProducts(): ArrayList<Product> {
         var list: ArrayList<Product> = ArrayList()
@@ -243,7 +247,5 @@ object Methods {
         editText.inputType = INPUT_TYPE_HIDDEN_PASSWORD
         editText.typeface = cache
     }
-
-
 
 }

@@ -89,4 +89,55 @@ object Dialogs {
         dialog.show()
 
     }
+
+    fun showSignoutDialog(context: Context, yesListener: View.OnClickListener) {
+
+        val dialog = Dialog(context)
+
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setContentView(R.layout.dialog_fragment_signout)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        val yesBtn = dialog.findViewById(R.id.btnYesDialogDeleteProduct) as MaterialButton
+        val noBtn = dialog.findViewById(R.id.btnNoDialogDeleteProduct) as MaterialButton
+
+        yesBtn.setOnClickListener {
+
+            yesListener.onClick(it)
+            dialog.dismiss()
+
+        }
+
+        noBtn.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        dialog.show()
+
+    }
+
+    fun showSubmitEditedInfoDialog(context: Context, yesListener: View.OnClickListener,noListener: View.OnClickListener) {
+
+        val dialog = Dialog(context)
+
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setContentView(R.layout.dialog_fragment_submit_edit)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        val yesBtn = dialog.findViewById(R.id.btnYesDialogDeleteProduct) as MaterialButton
+        val noBtn = dialog.findViewById(R.id.btnNoDialogDeleteProduct) as MaterialButton
+
+        yesBtn.setOnClickListener {
+            yesListener.onClick(it)
+            dialog.dismiss()
+        }
+
+        noBtn.setOnClickListener {
+            noListener.onClick(it)
+            dialog.dismiss()
+        }
+
+        dialog.show()
+
+    }
 }
